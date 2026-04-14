@@ -277,17 +277,18 @@ export const POPULAR_BY_CATEGORY: Record<string, Post[]> = {
 };
 
 export const CATEGORY_COLORS: Record<string, string> = {
-  LIFESTYLE: '#f4a0a0',
-  FASHION: '#a0c0e0',
-  FOOD: '#f0a060',
-  DECOR: '#a0c0a0',
-  MOTHERHOOD: '#c0a0d0',
-  BEAUTY: '#e0b0c0',
-  TRAVEL: '#a0b8d0',
+  LIFESTYLE: '#c8a090',
+  FASHION: '#a0b8d0',
+  FOOD: '#c8a060',
+  FIT: '#90b8a0',
+  DECOR: '#a8b8a0',
+  MOTHERHOOD: '#b8a0c0',
+  BEAUTY: '#c8a0b0',
+  TRAVEL: '#90a8c0',
   DIY: '#c8b890',
   SERIES: '#b0b0b0',
 };
 
 export const NAV_CATEGORIES = [
-  'FASHION', 'FOOD', 'BEAUTY', 'TRAVEL', 'DECOR', 'DIY', 'SERIES', 'MOTHERHOOD', 'VIDEO', 'SHOP'
+  'FASHION', 'FOOD', 'FIT', 'BEAUTY', 'TRAVEL', 'DECOR', 'MOTHERHOOD', 'VIDEO'
 ];

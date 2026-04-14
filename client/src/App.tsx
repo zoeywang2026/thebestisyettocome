@@ -19,6 +19,7 @@ import Gallery from "./pages/Gallery";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
 import NotFound from "./pages/NotFound";
+import PomodoroTimer from "./components/PomodoroTimer";
 
 function Router() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <PomodoroTimer />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

@@ -1,9 +1,9 @@
 /**
  * Header Component
  * Design: Modern Lifestyle Magazine
- * - Centered logo (Playfair Display Italic)
+ * - Centered italic serif title: "The best is yet to come"
  * - Hamburger menu left, search icon right
- * - Thin horizontal nav bar below logo
+ * - Thin horizontal nav bar below: FASHION / FOOD / FIT / BEAUTY / TRAVEL / DECOR / MOTHERHOOD / VIDEO
  * - Slide-in sidebar drawer for full category navigation
  */
 import { useState } from 'react';
@@ -14,10 +14,10 @@ import { NAV_CATEGORIES } from '@/lib/data';
 const SUB_CATEGORIES: Record<string, string[]> = {
   FASHION: ['FALL', 'SPRING', 'SUMMER', 'WINTER'],
   FOOD: ['BIGGER BITES', 'BREAKFAST & BRUNCH', 'DRINKS', 'SNACKS & APPS', 'SWEETS'],
+  FIT: ['WORKOUTS', 'WELLNESS', 'NUTRITION', 'MINDFULNESS'],
   BEAUTY: ['SKIN', 'NAILS'],
   DECOR: ['ENTERTAINING', 'ORGANIZATION', 'ROOMS & DETAILS'],
-  DIY: ['AT HOME', 'PAPER GOODS', 'STYLE'],
-  SERIES: ['FIVE THINGS', 'LINKS I LOVE', 'PERSONAL POSTS', 'PLACES', 'ROUND-UPS', 'WEEKDAY WARDROBE'],
+  MOTHERHOOD: ['FAMILY', 'PARENTING', 'PERSONAL POSTS'],
 };
 
 export default function Header() {
@@ -54,8 +54,8 @@ export default function Header() {
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
           <Link href="/" onClick={() => setDrawerOpen(false)}>
-            <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1.1rem' }}>
-              cupcakes and cashmere
+            <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1rem', lineHeight: 1.3 }}>
+              The best is yet to come
             </span>
           </Link>
           <button onClick={() => setDrawerOpen(false)} className="p-1">
@@ -106,7 +106,7 @@ export default function Header() {
 
       {/* Main Header */}
       <header className="sticky top-0 z-30 bg-white border-b border-gray-100">
-        {/* Top bar: menu | logo | search */}
+        {/* Top bar: menu | title | search */}
         <div className="relative flex items-center justify-between px-5 py-3">
           {/* Left: hamburger */}
           <button
@@ -117,13 +117,13 @@ export default function Header() {
             <Menu size={20} />
           </button>
 
-          {/* Center: Logo */}
+          {/* Center: Title */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
             <h1
               style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontSize: 'clamp(1.4rem, 4vw, 2.1rem)',
+                fontSize: 'clamp(1.1rem, 3.2vw, 1.8rem)',
                 fontWeight: 400,
                 letterSpacing: '0.01em',
                 color: '#1a1a1a',
@@ -131,7 +131,7 @@ export default function Header() {
                 whiteSpace: 'nowrap',
               }}
             >
-              cupcakes and cashmere
+              The best is yet to come
             </h1>
           </Link>
 
@@ -182,9 +182,6 @@ export default function Header() {
                 {cat}
               </Link>
             ))}
-            <Link href="/gallery" className="nav-link">
-              GALLERY
-            </Link>
           </div>
         </nav>
       </header>
