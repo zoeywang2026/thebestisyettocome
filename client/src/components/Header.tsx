@@ -179,7 +179,7 @@ export default function Header() {
             {NAV_CATEGORIES.map(cat => (
               <Link
                 key={cat}
-                href={`/category/${cat.toLowerCase()}`}
+                href={cat === 'VIDEO' ? '/video' : `/category/${cat.toLowerCase()}`}
                 className="nav-link"
               >
                 {cat}
