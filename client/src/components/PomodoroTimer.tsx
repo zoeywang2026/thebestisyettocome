@@ -455,7 +455,7 @@ export default function PomodoroTimer() {
 
       {/* ── Music row ── */}
       <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+        display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '8px',
         padding: '8px 16px 14px',
         borderTop: '1px solid rgba(210,200,195,0.25)',
       }}>
