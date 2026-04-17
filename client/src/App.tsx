@@ -20,6 +20,7 @@ import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
 import NotFound from "./pages/NotFound";
 import VideoPage from "./pages/VideoPage";
+import FoodiePage from "./pages/FoodiePage";
 import PomodoroTimer from "./components/PomodoroTimer";
 
 function Router() {
@@ -31,6 +32,7 @@ function Router() {
       <Route path="/category/:category" component={CategoryPage} />
       <Route path="/search" component={SearchPage} />
       <Route path="/video" component={VideoPage} />
+      <Route path="/foodie" component={FoodiePage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -13,7 +13,7 @@ import { NAV_CATEGORIES } from '@/lib/data';
 
 const SUB_CATEGORIES: Record<string, string[]> = {
   FASHION: ['FALL', 'SPRING', 'SUMMER', 'WINTER'],
-  FOOD: ['BIGGER BITES', 'BREAKFAST & BRUNCH', 'DRINKS', 'SNACKS & APPS', 'SWEETS'],
+  FOODIE: ['BIGGER BITES', 'BREAKFAST & BRUNCH', 'DRINKS', 'SNACKS & APPS', 'SWEETS'],
   FIT: ['WORKOUTS', 'WELLNESS', 'NUTRITION', 'MINDFULNESS'],
   BEAUTY: ['SKIN', 'NAILS'],
   DECOR: ['ENTERTAINING', 'ORGANIZATION', 'ROOMS & DETAILS'],
@@ -179,7 +179,7 @@ export default function Header() {
             {NAV_CATEGORIES.map(cat => (
               <Link
                 key={cat}
-                href={cat === 'VIDEO' ? '/video' : `/category/${cat.toLowerCase()}`}
+                href={cat === 'VIDEO' ? '/video' : cat === 'FOODIE' ? '/foodie' : `/category/${cat.toLowerCase()}`}
                 className="nav-link"
               >
                 {cat}
