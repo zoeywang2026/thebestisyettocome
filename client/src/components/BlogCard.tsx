@@ -85,8 +85,8 @@ export default function BlogCard({ post, variant = 'default', className = '', an
             {post.title}
           </h3>
           <p
-            className="text-xs text-gray-400"
-            style={{ fontFamily: 'var(--font-nav)', letterSpacing: '0.05em' }}
+            className="text-xs"
+            style={{ fontFamily: 'var(--font-nav)', letterSpacing: '0.08em', color: 'oklch(0.52 0.012 65)' }}
           >
             By {post.author} · {post.dateShort}
           </p>
@@ -120,8 +120,8 @@ export default function BlogCard({ post, variant = 'default', className = '', an
             {post.title}
           </h3>
           <p
-            className="text-xs text-gray-400"
-            style={{ fontFamily: 'var(--font-nav)', letterSpacing: '0.05em' }}
+            className="text-xs"
+            style={{ fontFamily: 'var(--font-nav)', letterSpacing: '0.08em', color: 'oklch(0.52 0.012 65)' }}
           >
             By {post.author} · {post.date}
           </p>

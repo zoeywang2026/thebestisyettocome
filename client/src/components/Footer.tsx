@@ -7,11 +7,11 @@ import { Link } from 'wouter';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-100 mt-16">
+    <footer style={{ borderTop: '1px solid oklch(0.88 0.008 70)', marginTop: '4rem' }}>
       <div className="max-w-5xl mx-auto px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p
-          className="text-xs text-gray-400 tracking-wider"
-          style={{ fontFamily: 'var(--font-nav)' }}
+          className="text-xs tracking-wider"
+          style={{ fontFamily: 'var(--font-nav)', color: 'oklch(0.52 0.012 65)', letterSpacing: '0.14em' }}
         >
           © {new Date().getFullYear()} CUPCAKES AND CASHMERE.
         </p>
@@ -20,8 +20,10 @@ export default function Footer() {
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
-              className="text-xs text-gray-400 hover:text-gray-700 tracking-wider transition-colors"
-              style={{ fontFamily: 'var(--font-nav)' }}
+              className="text-xs tracking-wider transition-colors"
+              style={{ fontFamily: 'var(--font-nav)', color: 'oklch(0.52 0.012 65)', letterSpacing: '0.14em' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#4a8fc0')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'oklch(0.52 0.012 65)')}
             >
               {item}
             </Link>

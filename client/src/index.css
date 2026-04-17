@@ -1,8 +1,9 @@
-/* 
- * Design System: Modern Lifestyle Magazine
- * Inspired by cupcakesandcashmere.com
- * Color: White bg, charcoal text, warm neutrals
- * Typography: Playfair Display (headings) + Montserrat (nav/labels) + Lora (body)
+/*
+ * Design System: Modern Lifestyle Magazine — Zoey Wang Edition
+ * Inspired by thebestisyettocome.wang personal site
+ * Color: Warm cream bg #f7f3ee, charcoal text, steel-blue accent
+ * Typography: Playfair Display (headings) + Montserrat (nav/labels) + DM Sans (body)
+ * Soft UI: rounded shadows, warm tones, gentle gradients preserved
  */
 
 @import "tailwindcss";
@@ -36,41 +37,45 @@
   --color-ring: var(--ring);
   --font-display: 'Playfair Display', Georgia, serif;
   --font-nav: 'Montserrat', sans-serif;
-  --font-body: 'Lora', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  /* Steel-blue accent from personal site italic headings */
+  --accent-blue: #4a8fc0;
+  --accent-blue-light: #e8f2f9;
 }
 
 :root {
   --radius: 0;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.15 0.005 60);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.005 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.005 60);
-  --primary: oklch(0.15 0.005 60);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.003 60);
-  --secondary-foreground: oklch(0.3 0.005 60);
-  --muted: oklch(0.96 0.003 60);
-  --muted-foreground: oklch(0.5 0.01 60);
-  --accent: oklch(0.94 0.005 60);
-  --accent-foreground: oklch(0.15 0.005 60);
+  /* Warm cream background — from personal site linen texture */
+  --background: oklch(0.972 0.010 75);
+  --foreground: oklch(0.14 0.008 55);
+  --card: oklch(0.982 0.007 75);
+  --card-foreground: oklch(0.14 0.008 55);
+  --popover: oklch(0.982 0.007 75);
+  --popover-foreground: oklch(0.14 0.008 55);
+  --primary: oklch(0.14 0.008 55);
+  --primary-foreground: oklch(0.98 0.005 75);
+  --secondary: oklch(0.955 0.010 75);
+  --secondary-foreground: oklch(0.3 0.008 60);
+  --muted: oklch(0.948 0.008 75);
+  --muted-foreground: oklch(0.50 0.012 65);
+  --accent: oklch(0.935 0.010 75);
+  --accent-foreground: oklch(0.14 0.008 55);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.9 0.003 60);
-  --input: oklch(0.9 0.003 60);
-  --ring: oklch(0.5 0.01 60);
+  --border: oklch(0.88 0.008 70);
+  --input: oklch(0.88 0.008 70);
+  --ring: oklch(0.62 0.12 240);
 
-  /* Category tag colors */
-  --tag-lifestyle: #f4a0a0;
-  --tag-food: #f0a060;
-  --tag-decor: #a0c0a0;
-  --tag-motherhood: #c0a0d0;
-  --tag-fashion: #a0c0e0;
-  --tag-beauty: #e0b0c0;
-  --tag-travel: #a0b8d0;
-  --tag-diy: #c8b890;
-  --tag-series: #b0b0b0;
+  /* Category tag colors — softened to match warm cream palette */
+  --tag-lifestyle: #e8a898;
+  --tag-food: #e8a870;
+  --tag-decor: #90b898;
+  --tag-motherhood: #b898c8;
+  --tag-fashion: #7aaed0;  /* steel-blue family */
+  --tag-beauty: #d8a0b8;
+  --tag-travel: #90a8c8;
+  --tag-fit: #88b8a8;
+  --tag-video: #a8a8c0;
 }
 
 @layer base {
@@ -80,6 +85,9 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
@@ -137,33 +145,37 @@
     transform: scale(1.04);
   }
 
-  /* Category section title */
+  /* Category section title — personal site style: small caps + italic serif accent */
   .section-title {
     font-family: var(--font-nav);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: oklch(0.15 0.005 60);
+    color: oklch(0.45 0.012 65);
   }
   .section-title em {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
     text-transform: none;
-    font-weight: 400;
+    font-weight: 500;
+    /* Steel-blue italic accent — signature of personal site */
+    color: var(--accent-blue);
   }
 
-  /* Category tag */
+  /* Category tag — warm cream bg, letter-spaced */
   .category-tag {
     font-family: var(--font-nav);
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    padding: 0.2rem 0.55rem;
+    padding: 0.18rem 0.5rem;
     display: inline-block;
+    background: oklch(0.955 0.010 75);
+    border: 1px solid oklch(0.86 0.010 70);
   }
 
   /* Post title link */
@@ -177,18 +189,21 @@
     opacity: 0.7;
   }
 
-  /* Nav link */
+  /* Nav link — personal site style: wider letter-spacing, lighter weight */
   .nav-link {
     font-family: var(--font-nav);
-    font-size: 0.65rem;
+    font-size: 0.63rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: oklch(0.15 0.005 60);
+    color: oklch(0.25 0.008 60);
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s ease;
     padding: 0.25rem 0;
     position: relative;
+  }
+  .nav-link:hover {
+    color: var(--accent-blue);
   }
   .nav-link::after {
     content: '';

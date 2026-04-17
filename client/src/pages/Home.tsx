@@ -93,7 +93,7 @@ export default function Home() {
   const heroPost = sortedPosts[0];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col" style={{ background: 'oklch(0.972 0.010 75)' }}>
       <Header />
 
       <main className="flex-1" style={{ paddingBottom: '280px' }}>
@@ -113,7 +113,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="max-w-5xl mx-auto px-5"><hr className="border-gray-100" /></div>
+        <div className="max-w-5xl mx-auto px-5"><hr style={{ borderColor: 'oklch(0.88 0.008 70)' }} /></div>
 
         {/* ── Popular from FOOD ── */}
         <section className="max-w-5xl mx-auto px-5 py-10">
@@ -125,7 +125,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="max-w-5xl mx-auto px-5"><hr className="border-gray-100" /></div>
+        <div className="max-w-5xl mx-auto px-5"><hr style={{ borderColor: 'oklch(0.88 0.008 70)' }} /></div>
 
         {/* ── Popular from FIT ── */}
         <section className="max-w-5xl mx-auto px-5 py-10">
@@ -144,7 +144,7 @@ export default function Home() {
           </p>
         </section>
 
-        <div className="max-w-5xl mx-auto px-5"><hr className="border-gray-100" /></div>
+        <div className="max-w-5xl mx-auto px-5"><hr style={{ borderColor: 'oklch(0.88 0.008 70)' }} /></div>
 
         {/* ── Popular from BEAUTY + TRAVEL (side by side) ── */}
         <section className="max-w-5xl mx-auto px-5 py-10">
@@ -162,7 +162,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="max-w-5xl mx-auto px-5"><hr className="border-gray-100" /></div>
+        <div className="max-w-5xl mx-auto px-5"><hr style={{ borderColor: 'oklch(0.88 0.008 70)' }} /></div>
 
         {/* ── Popular from DECOR ── */}
         <section className="max-w-5xl mx-auto px-5 py-10">
@@ -174,7 +174,7 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="max-w-5xl mx-auto px-5"><hr className="border-gray-100" /></div>
+        <div className="max-w-5xl mx-auto px-5"><hr style={{ borderColor: 'oklch(0.88 0.008 70)' }} /></div>
 
         {/* ── Popular from MOTHERHOOD ── */}
         <section className="max-w-5xl mx-auto px-5 py-10">
@@ -193,7 +193,7 @@ export default function Home() {
           )}
         </section>
 
-        <div className="max-w-5xl mx-auto px-5"><hr className="border-gray-100" /></div>
+        <div className="max-w-5xl mx-auto px-5"><hr style={{ borderColor: 'oklch(0.88 0.008 70)' }} /></div>
 
         {/* ── Previous Posts ── */}
         <section className="max-w-5xl mx-auto px-5 py-10">
@@ -209,7 +209,7 @@ export default function Home() {
                   animDelay={i * 40}
                 />
                 {i < visiblePosts.length - 1 && (
-                  <hr className="border-gray-100 mt-8" />
+                  <hr style={{ borderColor: 'oklch(0.88 0.008 70)', marginTop: '2rem' }} />
                 )}
               </div>
             ))}
@@ -219,8 +219,22 @@ export default function Home() {
             <div className="text-center mt-10">
               <button
                 onClick={() => setVisibleCount(c => c + POSTS_PER_PAGE)}
-                className="text-xs tracking-widest font-semibold border border-gray-300 px-8 py-3 hover:bg-gray-50 transition-colors"
-                style={{ fontFamily: 'var(--font-nav)' }}
+                className="text-xs tracking-widest font-semibold px-8 py-3 transition-colors"
+                style={{
+                  fontFamily: 'var(--font-nav)',
+                  border: '1px solid oklch(0.82 0.012 70)',
+                  color: 'oklch(0.30 0.010 60)',
+                  background: 'transparent',
+                  letterSpacing: '0.18em',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLButtonElement).style.color = '#4a8fc0';
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = '#4a8fc0';
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLButtonElement).style.color = 'oklch(0.30 0.010 60)';
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = 'oklch(0.82 0.012 70)';
+                }}
               >
                 SEE MORE
               </button>

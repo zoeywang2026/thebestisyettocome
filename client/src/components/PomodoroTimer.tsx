@@ -260,8 +260,8 @@ export default function PomodoroTimer() {
           gap: '8px',
           padding: '8px 16px',
           borderRadius: '50px',
-          background: '#ede8e3',
-          boxShadow: '-4px -4px 10px #ffffff, 4px 4px 10px #ccc5bc',
+          background: 'oklch(0.972 0.010 75)',
+          boxShadow: '-4px -4px 10px rgba(255,252,248,0.9), 4px 4px 10px rgba(190,180,168,0.5)',
           cursor: 'pointer',
           fontFamily: 'var(--font-nav)',
           userSelect: 'none',
@@ -273,10 +273,10 @@ export default function PomodoroTimer() {
           boxShadow: isRunning ? `0 0 6px ${accent}` : 'none',
           animation: isRunning ? 'neuPulse 2s ease-in-out infinite' : 'none',
         }} />
-        <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', color: '#7a6e68' }}>
+        <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', color: 'oklch(0.35 0.010 60)' }}>
           {formatTime(timeLeft)}
         </span>
-        <ChevronUp size={12} style={{ color: '#9a8e88' }} />
+        <ChevronUp size={12} style={{ color: 'oklch(0.52 0.012 65)' }} />
       </div>
     );
   }
@@ -290,9 +290,9 @@ export default function PomodoroTimer() {
         left: '20px',
         zIndex: 50,
         width: '250px',
-        background: '#ede8e3',
+        background: 'oklch(0.972 0.010 75)',
         borderRadius: '20px 20px 0 0',
-        boxShadow: '-8px -8px 24px #ffffff, 8px 0px 24px #ccc5bc, 0 -4px 16px #ccc5bc',
+        boxShadow: '-8px -8px 24px rgba(255,252,248,0.9), 8px 0px 24px rgba(190,180,168,0.5), 0 -4px 16px rgba(190,180,168,0.4)',
         fontFamily: 'var(--font-nav)',
         userSelect: 'none',
         animation: isRunning ? 'neuBreath 4s ease-in-out infinite' : 'none',
@@ -303,7 +303,7 @@ export default function PomodoroTimer() {
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         padding: '12px 16px 6px',
       }}>
-        <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.2em', color: '#9a8e88', textTransform: 'uppercase' }}>
+        <span style={{ fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.2em', color: 'oklch(0.52 0.012 65)', textTransform: 'uppercase' }}>
           Pomodoro
         </span>
         <button
@@ -322,7 +322,7 @@ export default function PomodoroTimer() {
       </div>
 
       {/* ── Cat Scene ── */}
-      <div style={{ padding: '0 4px 0', lineHeight: 0, background: 'linear-gradient(180deg, #fdf0f4 0%, #ede8e3 100%)', borderRadius: '12px', margin: '0 10px 4px', overflow: 'hidden' }}>
+      <div style={{ padding: '0 4px 0', lineHeight: 0, background: 'linear-gradient(180deg, oklch(0.985 0.012 60) 0%, oklch(0.960 0.012 75) 100%)', borderRadius: '12px', margin: '0 10px 4px', overflow: 'hidden' }}>
         <CatScene isRunning={isRunning} />
       </div>
 
@@ -353,7 +353,7 @@ export default function PomodoroTimer() {
               />
             )}
             {/* Inner fill */}
-            <circle cx="60" cy="60" r="44" fill="#ede8e3" />
+            <circle cx="60" cy="60" r="44" fill="oklch(0.972 0.010 75)" />
           </svg>
           {/* Time text */}
           <div style={{
@@ -363,7 +363,7 @@ export default function PomodoroTimer() {
           }}>
             <span style={{
               fontFamily: 'var(--font-display)', fontStyle: 'italic',
-              fontSize: '1.6rem', fontWeight: 400, color: justFinished ? accent : '#4a3f3a',
+              fontSize: '1.6rem', fontWeight: 400, color: justFinished ? accent : 'oklch(0.18 0.010 58)',
               lineHeight: 1, letterSpacing: '-0.02em',
               transition: 'color 0.4s ease',
             }}>
@@ -384,8 +384,8 @@ export default function PomodoroTimer() {
         display: 'flex', gap: '6px', margin: '0 14px 10px',
         padding: '4px',
         borderRadius: '12px',
-        background: '#ede8e3',
-        boxShadow: 'inset -2px -2px 6px #ffffff, inset 2px 2px 6px #ccc5bc',
+        background: 'oklch(0.960 0.012 75)',
+        boxShadow: 'inset -2px -2px 6px rgba(255,252,248,0.9), inset 2px 2px 6px rgba(190,180,168,0.45)',
       }}>
         {(Object.keys(MODES) as Mode[]).map(m => (
           <button key={m} onClick={() => handleModeChange(m)}
@@ -393,7 +393,7 @@ export default function PomodoroTimer() {
               flex: 1, padding: '5px 0', border: 'none', cursor: 'pointer',
               borderRadius: '9px', fontSize: '0.5rem', fontWeight: 700,
               letterSpacing: '0.08em', textTransform: 'uppercase',
-              color: mode === m ? '#fff' : '#9a8e88',
+              color: mode === m ? '#fff' : 'oklch(0.52 0.012 65)',
               background: mode === m ? accent : 'transparent',
               boxShadow: mode === m ? '-2px -2px 5px rgba(255,255,255,0.5), 2px 2px 5px rgba(0,0,0,0.12)' : 'none',
               transition: 'all 0.2s ease',
@@ -410,9 +410,9 @@ export default function PomodoroTimer() {
         <button onClick={handleReset}
           style={{
             width: '34px', height: '34px', borderRadius: '50%', border: 'none', cursor: 'pointer',
-            background: '#ede8e3',
-            boxShadow: '-4px -4px 10px #ffffff, 4px 4px 10px #ccc5bc',
-            color: '#9a8e88', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'oklch(0.972 0.010 75)',
+            boxShadow: '-4px -4px 10px rgba(255,252,248,0.9), 4px 4px 10px rgba(190,180,168,0.5)',
+            color: 'oklch(0.52 0.012 65)', display: 'flex', alignItems: 'center', justifyContent: 'center',
             transition: 'box-shadow 0.15s ease',
           }}
           onMouseDown={e => { (e.currentTarget as HTMLButtonElement).style.boxShadow = 'inset -2px -2px 5px #ffffff, inset 2px 2px 5px #ccc5bc'; }}
@@ -426,10 +426,10 @@ export default function PomodoroTimer() {
         <button onClick={handleToggle}
           style={{
             width: '48px', height: '48px', borderRadius: '50%', border: 'none', cursor: 'pointer',
-            background: isRunning ? accent : '#ede8e3',
+            background: isRunning ? accent : 'oklch(0.972 0.010 75)',
             boxShadow: isRunning
               ? `inset -3px -3px 7px rgba(255,255,255,0.35), inset 3px 3px 7px rgba(0,0,0,0.15), 0 0 12px ${accent}50`
-              : '-6px -6px 14px #ffffff, 6px 6px 14px #ccc5bc',
+              : '-6px -6px 14px rgba(255,252,248,0.9), 6px 6px 14px rgba(190,180,168,0.5)',
             color: isRunning ? '#fff' : accent,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             transition: 'all 0.2s ease',

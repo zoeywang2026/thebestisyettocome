@@ -47,12 +47,12 @@ export default function Header() {
 
       {/* Sidebar Drawer */}
       <aside
-        className={`fixed top-0 left-0 h-full w-72 bg-white z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`fixed top-0 left-0 h-full w-72 z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           drawerOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
-        style={{ fontFamily: 'var(--font-nav)' }}
+        style={{ fontFamily: 'var(--font-nav)', background: 'oklch(0.972 0.010 75)' }}
       >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+        <div className="flex items-center justify-between px-6 py-5" style={{ borderBottom: '1px solid oklch(0.88 0.008 70)' }}>
           <Link href="/" onClick={() => setDrawerOpen(false)}>
             <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1rem', lineHeight: 1.3 }}>
               The best is yet to come
@@ -69,7 +69,10 @@ export default function Header() {
               <Link
                 href={`/category/${cat.toLowerCase()}`}
                 onClick={() => setDrawerOpen(false)}
-                className="block text-xs font-semibold tracking-widest text-gray-900 hover:text-gray-500 transition-colors mb-2"
+                className="block text-xs font-semibold tracking-widest transition-colors mb-2"
+              style={{ color: 'oklch(0.20 0.008 55)', letterSpacing: '0.18em' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#4a8fc0')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'oklch(0.20 0.008 55)')}
               >
                 {cat}
               </Link>
@@ -105,7 +108,7 @@ export default function Header() {
       </aside>
 
       {/* Main Header */}
-      <header className="sticky top-0 z-30 bg-white border-b border-gray-100">
+      <header className="sticky top-0 z-30" style={{ background: 'oklch(0.972 0.010 75)', borderBottom: '1px solid oklch(0.88 0.008 70)' }}>
         {/* Top bar: menu | title | search */}
         <div className="relative flex items-center justify-between px-5 py-3">
           {/* Left: hamburger */}
