@@ -10,7 +10,7 @@
  * Colors: warm cream bg, white egg card, charcoal text
  */
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { RotateCcw, SkipForward, Timer, Music2, Heart, Settings, ChevronDown, ChevronUp } from 'lucide-react';
+import { RotateCcw, SkipForward, Music2, ChevronDown, ChevronUp } from 'lucide-react';
 
 type Mode = 'focus' | 'short' | 'long';
 
@@ -32,7 +32,7 @@ export default function PomodoroTimer() {
   const [streak, setStreak] = useState(1);
   const [minimized, setMinimized] = useState(false);
   const [justFinished, setJustFinished] = useState(false);
-  const [activeNav, setActiveNav] = useState<'timer' | 'music' | 'heart' | 'settings'>('timer');
+  const [activeNav, setActiveNav] = useState<'music'>('music');
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -453,51 +453,41 @@ export default function PomodoroTimer() {
         ))}
       </div>
 
-      {/* ── Bottom nav icons ── */}
+      {/* ── Music row ── */}
       <div style={{
-        display: 'flex', justifyContent: 'space-around', alignItems: 'center',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
         padding: '8px 16px 14px',
         borderTop: '1px solid rgba(210,200,195,0.25)',
       }}>
-        {([
-          { key: 'timer', Icon: Timer },
-          { key: 'music', Icon: Music2 },
-          { key: 'heart', Icon: Heart },
-          { key: 'settings', Icon: Settings },
-        ] as { key: typeof activeNav; Icon: typeof Timer }[]).map(({ key, Icon }) => (
-          <button
-            key={key}
-            onClick={() => {
-              if (key === 'music') {
-                handleMusicToggle();
-              } else {
-                setActiveNav(key);
-              }
-            }}
-            style={{
-              width: '32px', height: '32px',
-              border: 'none', background: 'transparent',
-              cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: activeNav === key ? 'oklch(0.22 0.008 55)' : 'oklch(0.65 0.010 65)',
-              transition: 'color 0.2s ease',
-              position: 'relative',
-            }}
-          >
-            <Icon
-              size={15}
-              strokeWidth={(key === 'music' ? isPlaying : activeNav === key) ? 2 : 1.5}
-              style={key === 'music' && isPlaying ? { color: '#c8907a', filter: 'drop-shadow(0 0 3px #c8907a88)' } : {}}
-            />
-            {(key === 'music' ? isPlaying : activeNav === key) && (
-              <div style={{
-                position: 'absolute', bottom: '2px',
-                width: '4px', height: '4px', borderRadius: '50%',
-                background: 'oklch(0.22 0.008 55)',
-              }} />
-            )}
-          </button>
-        ))}
+        <button
+          onClick={handleMusicToggle}
+          style={{
+            width: '28px', height: '28px',
+            border: 'none', background: 'transparent',
+            cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: isPlaying ? '#c8907a' : 'oklch(0.65 0.010 65)',
+            transition: 'color 0.2s ease',
+            flexShrink: 0,
+          }}
+          aria-label={isPlaying ? 'Pause music' : 'Play Clair de Lune'}
+        >
+          <Music2
+            size={15}
+            strokeWidth={isPlaying ? 2 : 1.5}
+            style={isPlaying ? { filter: 'drop-shadow(0 0 3px #c8907a88)' } : {}}
+          />
+        </button>
+        <span style={{
+          fontFamily: 'var(--font-heading)',
+          fontStyle: 'italic',
+          fontSize: '0.72rem',
+          color: 'oklch(0.60 0.010 65)',
+          letterSpacing: '0.02em',
+          userSelect: 'none',
+        }}>
+          Clair de Lune
+        </span>
       </div>
     </div>
   );
