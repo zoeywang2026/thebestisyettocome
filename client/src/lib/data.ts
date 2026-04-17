@@ -87,68 +87,7 @@ Here are a few snapshots from the past few weeks.`,
     gallery: [IMGS.lifestyle1, IMGS.lifestyle2, IMGS.gallery, IMGS.hero],
     tags: ['lifestyle', 'personal'],
   },
-  {
-    id: '3',
-    slug: 'bloody-mary-tomato-salad',
-    title: 'Bloody Mary Tomato Salad',
-    category: 'FOOD',
-    subcategory: 'SNACKS & APPS',
-    author: 'Emily',
-    date: 'July 14, 2023',
-    dateShort: 'Jul 14, 2023',
-    image: IMGS.food,
-    excerpt: 'This vibrant summer salad takes all the flavors of a classic Bloody Mary and transforms them into a stunning dish perfect for entertaining.',
-    content: `This vibrant summer salad takes all the flavors of a classic Bloody Mary and transforms them into a stunning dish perfect for entertaining. Heirloom tomatoes are the star here — use the most colorful ones you can find.
 
-**Ingredients:**
-- 2 lbs mixed heirloom tomatoes, sliced
-- 1 ball fresh burrata
-- 2 tbsp prepared horseradish
-- 1 tbsp Worcestershire sauce
-- Juice of 1 lemon
-- Hot sauce to taste
-- Fresh basil leaves
-- Flaky sea salt
-
-**Instructions:**
-Arrange the tomatoes on a large platter. Tear the burrata over the top. Whisk together the horseradish, Worcestershire, lemon juice, and hot sauce, then drizzle over everything. Finish with fresh basil and a generous pinch of flaky salt.`,
-    gallery: [IMGS.food, IMGS.food2, IMGS.food3],
-    tags: ['food', 'salad', 'summer', 'entertaining'],
-  },
-  {
-    id: '4',
-    slug: 'the-8-desserts-i-make-over-and-over',
-    title: 'The 8 Desserts I Make Over and Over',
-    category: 'FOOD',
-    subcategory: 'SWEETS',
-    author: 'Emily',
-    date: 'March 21, 2023',
-    dateShort: 'Mar 21, 2023',
-    image: IMGS.food2,
-    excerpt: 'My tried-and-true dessert repertoire — the recipes I return to again and again because they never fail to impress.',
-    content: `My tried-and-true dessert repertoire — the recipes I return to again and again because they never fail to impress. These are the desserts that have earned a permanent spot in my recipe rotation.
-
-From a simple chocolate mousse that comes together in minutes to a showstopping pavlova that looks far more impressive than it is to make, these are my absolute favorites.`,
-    gallery: [IMGS.food2, IMGS.food3, IMGS.food],
-    tags: ['food', 'dessert', 'baking'],
-  },
-  {
-    id: '5',
-    slug: 'our-24-favorite-things-from-trader-joes',
-    title: "Our 24 Favorite Things From Trader Joe's",
-    category: 'FOOD',
-    subcategory: 'BIGGER BITES',
-    author: 'Emily',
-    date: 'February 24, 2023',
-    dateShort: 'Feb 24, 2023',
-    image: IMGS.food3,
-    excerpt: "A comprehensive guide to the best things you can buy at Trader Joe's right now — from pantry staples to seasonal finds.",
-    content: `A comprehensive guide to the best things you can buy at Trader Joe's right now. After years of shopping there, I've narrowed it down to the 24 items I buy on every single trip.
-
-From their legendary Everything But the Bagel seasoning to the most addictive frozen appetizers, these are the products that have earned permanent spots on my shopping list.`,
-    gallery: [IMGS.food3, IMGS.food, IMGS.food2],
-    tags: ['food', 'shopping', 'trader joes'],
-  },
   {
     id: '6',
     slug: 'the-lavune-core-collection-is-here',
@@ -271,7 +210,6 @@ These are the days I try to pay attention to — the light through the kitchen w
 
 export const POPULAR_BY_CATEGORY: Record<string, Post[]> = {
   LIFESTYLE: POSTS.filter(p => p.category === 'LIFESTYLE').slice(0, 2),
-  FOOD: POSTS.filter(p => p.category === 'FOOD').slice(0, 3),
   DECOR: POSTS.filter(p => p.category === 'DECOR').slice(0, 2),
   MOTHERHOOD: POSTS.filter(p => p.category === 'MOTHERHOOD').slice(0, 3),
 };

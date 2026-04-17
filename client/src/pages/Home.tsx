@@ -29,7 +29,6 @@ const withFallback = (posts: typeof POSTS, limit: number) =>
   posts.length >= limit ? posts : [...posts, ...POSTS.filter(p => !posts.includes(p))].slice(0, limit);
 
 const FASHION_POSTS = withFallback(byCategory('FASHION'), 2);
-const FOOD_POSTS = withFallback(byCategory('FOOD'), 3);
 // FIT posts — use lifestyle as stand-in since no FIT category data yet
 const FIT_POSTS = withFallback(byCategory('LIFESTYLE'), 2);
 const BEAUTY_POSTS = withFallback(byCategory('BEAUTY', 1), 1);
@@ -109,18 +108,6 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {FASHION_POSTS.map((post, i) => (
               <BlogCard key={post.id} post={post} variant="default" animDelay={i * 60} />
-            ))}
-          </div>
-        </section>
-
-        <div className="max-w-5xl mx-auto px-5"><hr style={{ borderColor: 'oklch(0.88 0.008 70)' }} /></div>
-
-        {/* ── Popular from FOOD ── */}
-        <section className="max-w-5xl mx-auto px-5 py-10">
-          <SectionTitle category="FOOD" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {FOOD_POSTS.map((post, i) => (
-              <BlogCard key={post.id} post={post} variant="overlay" animDelay={i * 60} />
             ))}
           </div>
         </section>
