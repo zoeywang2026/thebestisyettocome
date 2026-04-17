@@ -9,7 +9,7 @@
  * Position: fixed bottom-left, anchored to edge
  * Colors: warm cream bg, white egg card, charcoal text
  */
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { RotateCcw, SkipForward, Timer, Music2, Heart, Settings, ChevronDown, ChevronUp } from 'lucide-react';
 
 type Mode = 'focus' | 'short' | 'long';
@@ -34,6 +34,42 @@ export default function PomodoroTimer() {
   const [justFinished, setJustFinished] = useState(false);
   const [activeNav, setActiveNav] = useState<'timer' | 'music' | 'heart' | 'settings'>('timer');
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Initialize audio on first interaction
+  const getAudio = useCallback(() => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(
+        'https://upload.wikimedia.org/wikipedia/commons/d/d3/Moonlight_-_Clair_de_Lune_%28As_the_rememberance_of_Sir_Debussy.ogg'
+      );
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.45;
+      audioRef.current.onended = () => setIsPlaying(false);
+    }
+    return audioRef.current;
+  }, []);
+
+  const handleMusicToggle = useCallback(() => {
+    const audio = getAudio();
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+      setActiveNav('music');
+    }
+  }, [isPlaying, getAudio]);
+
+  // Cleanup audio on unmount
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   const totalDuration = MODES[mode].duration;
   const progress = (totalDuration - timeLeft) / totalDuration;
@@ -431,7 +467,13 @@ export default function PomodoroTimer() {
         ] as { key: typeof activeNav; Icon: typeof Timer }[]).map(({ key, Icon }) => (
           <button
             key={key}
-            onClick={() => setActiveNav(key)}
+            onClick={() => {
+              if (key === 'music') {
+                handleMusicToggle();
+              } else {
+                setActiveNav(key);
+              }
+            }}
             style={{
               width: '32px', height: '32px',
               border: 'none', background: 'transparent',
@@ -442,8 +484,12 @@ export default function PomodoroTimer() {
               position: 'relative',
             }}
           >
-            <Icon size={15} strokeWidth={activeNav === key ? 2 : 1.5} />
-            {activeNav === key && (
+            <Icon
+              size={15}
+              strokeWidth={(key === 'music' ? isPlaying : activeNav === key) ? 2 : 1.5}
+              style={key === 'music' && isPlaying ? { color: '#c8907a', filter: 'drop-shadow(0 0 3px #c8907a88)' } : {}}
+            />
+            {(key === 'music' ? isPlaying : activeNav === key) && (
               <div style={{
                 position: 'absolute', bottom: '2px',
                 width: '4px', height: '4px', borderRadius: '50%',
