@@ -12,7 +12,7 @@ import Lightbox from '@/components/Lightbox';
 import { POSTS, CATEGORY_COLORS, Category } from '@/lib/data';
 
 const ALL_CATEGORIES: (Category | 'ALL')[] = [
-  'ALL', 'LIFESTYLE', 'FASHION', 'FOOD', 'DECOR', 'MOTHERHOOD', 'BEAUTY', 'TRAVEL',
+  'ALL', 'LIFESTYLE', 'FASHION', 'FOODIE', 'DECOR', 'MOTHERHOOD', 'BEAUTY', 'TRAVEL',
 ];
 
 export default function Gallery() {

@@ -4,7 +4,7 @@
 export type Category =
   | 'LIFESTYLE'
   | 'FASHION'
-  | 'FOOD'
+  | 'FOODIE'
   | 'DECOR'
   | 'MOTHERHOOD'
   | 'BEAUTY'
@@ -217,7 +217,7 @@ export const POPULAR_BY_CATEGORY: Record<string, Post[]> = {
 export const CATEGORY_COLORS: Record<string, string> = {
   LIFESTYLE: '#c8a090',
   FASHION: '#a0b8d0',
-  FOOD: '#c8a060',
+  FOODIE: '#c8a060',
   FIT: '#90b8a0',
   DECOR: '#a8b8a0',
   MOTHERHOOD: '#b8a0c0',
@@ -228,5 +228,5 @@ export const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export const NAV_CATEGORIES = [
-  'FASHION', 'FOOD', 'FIT', 'BEAUTY', 'TRAVEL', 'DECOR', 'MOTHERHOOD', 'VIDEO'
+  'FASHION', 'FOODIE', 'FIT', 'BEAUTY', 'TRAVEL', 'DECOR', 'MOTHERHOOD', 'VIDEO'
 ];
